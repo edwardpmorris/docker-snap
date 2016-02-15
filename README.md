@@ -20,7 +20,7 @@ debian:8
 
 1. Download build from public [Docker Registry](https://index.docker.io/): `docker pull epmorris/debian8-esa-step-snap2:install`
 
-(alternatively, you can build an image from Dockerfile: `docker build -t="epmorris/debian8-esa-step-snap2:install" github.com/edwardpmorris/docker-snap/debian8-esa-step-snap2`)
+(alternatively, you can build an image from Dockerfile: `docker build -t="epmorris/debian8-esa-step-snap2:install" github.com/edwardpmorris/docker-snap.git#:debian8-esa-step-snap2`)
 
 
 ## Details

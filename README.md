@@ -3,12 +3,25 @@ Docker containers including ESA-STEP Sentinel Application Platform (SNAP, http:/
 
 ## Status
 + pre alpha, in development and may change at anytime without notice.
-+ images not yes on Dockerhub.
++ images not yet on Dockerhub.
 
 ## Versions
 + java8-maven-git For compiling developer versions of snap using netbeans.[TODO]
 + debian8-esa-step-snap2:install Base container ready to install snap and toolboxes (~550 Mb), not set to use GUI.
 + debian8-esa-step-snap2:s1tbx Base container with snap + s1tbx (~ 1Gb), no set to use GUI (made interactively, hence no Dockerfile).
+
+## Dependencies
+
+debian:8
+
+## Installation
+
+1.  [Install Docker](https://docs.docker.com/engine/installation/).
+
+1. Download build from public [Docker Registry](https://index.docker.io/): `docker pull epmorris/debian8-esa-step-snap2:install`
+
+(alternatively, you can build an image from Dockerfile: `docker build -t="epmorris/debian8-esa-step-snap2:install" github.com/edwardpmorris/docker-snap/debian8-esa-step-snap2`)
+
 
 ## Details
 

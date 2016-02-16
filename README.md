@@ -7,8 +7,8 @@ Docker containers including ESA-STEP Sentinel Application Platform (SNAP, http:/
 
 ## Versions
 + java8-maven-git (https://hub.docker.com/r/jamesdbloom/docker-java8-maven/) For compiling developer versions of snap using netbeans.[TODO]
-+ debian8-esa-step-snap2:install Base container ready to install snap and toolboxes (~550 Mb), not set to use GUI.
-+ debian8-esa-step-snap2:s1tbx Base container with snap + s1tbx (~ 1Gb), no set to use GUI (made interactively, hence no Dockerfile).
++ debian8-snap2:base Base container ready to install snap and toolboxes (~550 Mb).
++ debian8-snap2:s1tbx Base container with snap + s1tbx (~ 1Gb), headless.
 
 ## Dependencies
 

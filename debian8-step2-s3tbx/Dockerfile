@@ -1,0 +1,12 @@
+# Debian 8, ESA-STEP-SNAP (unix_2_0_2)  Dockerfile
+# https://github.com/edwardpmorris/docker-snap/debian8-esa-step-snap2
+
+# pull base image (use a specific version tag ':tag')
+FROM epmorris/debian8-snap2:base
+# maintainer details
+MAINTAINER epmorris "edward.morris@uca.es"
+# update labels
+LABEL snap_version='2.0.2' \
+  toolboxes='S3TBX' \
+  toolbox_version='' \
+  GUI_enabled='False'

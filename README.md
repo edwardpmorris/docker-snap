@@ -1,5 +1,8 @@
 # Docker containers for the Sentinel Application Platform
-Docker containers including ESA-STEP Sentinel Application Platform (SNAP, http://step.esa.int/main/toolboxes/snap/) and Sentinel toolboxes jointly developed by Brockmann Consult, Array Systems Computing and C-S. Containers packaging utilities for Sentinel data are alos included.
+
+Docker containers including ESA-STEP Sentinel Application Platform ([SNAP]( http://step.esa.int/main/toolboxes/snap/)) and Sentinel toolboxes jointly developed by Brockmann Consult, Array Systems Computing and C-S.
+
+Some useful utlities containers for Sentinel data are also included.
 
 ## Status
 + pre alpha, in development and may change at anytime without notice
@@ -7,12 +10,20 @@ Docker containers including ESA-STEP Sentinel Application Platform (SNAP, http:/
 + images not yet on Dockerhub.
 
 ## Versions
-+ [debian8-snap2:base]() Base container used to build snap and toolboxes (~550 Mb).
-+ [debian8-snap2:s1tbx] Base container with snap + s1tbx (~ 1Gb), headless.
-+ [debian8-snap2:s2tbx] Base container with snap + s2tbx (~ 1Gb), headless.
-+ [debian8-snap2:s3tbx] Base container with snap + s3tbx (~ 1Gb), headless.
 
-+ debian8-pythonX-snap2:base Base container with python used to build snap and toolboxes (~550 Mb) [TODO]
+### Headless SNAP with toolboxes, `gpt` command line API
++ [debian8-snap2:base]() - Base container used to build SNAP and toolboxes (~550 Mb).
++ [debian8-snap2:s1tbx]()  - Base container with SNAP + S1TBX (~ 1Gb).
++ [debian8-snap2:s2tbx]()  - Base container with SNAP + S2TBX (~ 1Gb).
++ [debian8-snap2:s3tbx]()  - Base container with SNAP + S3TBX (~ 1Gb).
+
+### Headless SNAP with toolboxes, `snappy` Python API enabled
+RETHINK: Why not just make Python available by default in all? Python is already weel integrated into debian so no real overhead?
+
++ [debian8-snap2:base]() - Base container with Python used to build snap and toolboxes ( Mb) [TODO]
+
+
+### Utilities
 + alpine3-pythonX-sentinelsat Python container with sentinelsat 0.6.4 a utility to search and download Sentinel-1 Imagery [TODO]
 + java8-maven-git-snapdev (https://hub.docker.com/r/jamesdbloom/docker-java8-maven/) For compiling developer versions of snap using netbeans.[TODO]
 

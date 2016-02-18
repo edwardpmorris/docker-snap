@@ -1,5 +1,5 @@
 # Debian 8, ESA-STEP-SNAP (unix_2_0_2)  Dockerfile
-# https://github.com/edwardpmorris/docker-snap/debian8-esa-step-snap2
+# https://github.com/edwardpmorris/docker-snap
 
 # pull base image (use a specific version tag ':tag')
 FROM debian:8
@@ -10,10 +10,11 @@ LABEL snap_version='2.0.2'
 # create user group and install packages
 RUN groupadd -r worker \
     && useradd -r -g worker worker \
-    && mkdir /home/worker \
-    && apt-get update -y && apt-get install -y \ 
+    && mkdir /home/worker
+RUN apt-get update -y && apt-get install -y \ 
       nano \
       wget \
+      python=2.7.9-1 \
     && rm -fr /var/lib/apt/lists/*
 # update variables
 ENV \ 
@@ -24,11 +25,3 @@ ENV \
 WORKDIR /home/worker
 RUN wget $SNAP_URL/$TBX \ 
   && chmod +x $TBX
-
-## Toolbox builds ##
-# copy over install settings to WRKDIR
-ONBUILD COPY snap2.varfile $HOME
-ONBUILD RUN ./$TBX -q -varfile snap2.varfile \
-  && rm $TBX \
-  && rm snap2.varfile
-ONBUILD ENV PATH=$PATH:/home/worker/snap/bin

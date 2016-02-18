@@ -1,5 +1,7 @@
 # build base image
-docker build --tag="epmorris/debian8-snap2:base" debian8-snap2
+docker build --tag="epmorris/debian8-snap2:base" debian8-snap2-base
+
+docker build --tag="epmorris/debian8-snap2:on_build" debian8-snap2-on_build
 
 docker build --tag="epmorris/debian8-snap2:s1tbx" debian8-snap2-s1tbx
 

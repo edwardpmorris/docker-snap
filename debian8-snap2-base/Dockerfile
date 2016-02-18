@@ -14,7 +14,6 @@ RUN groupadd -r worker \
 RUN apt-get update -y && apt-get install -y \ 
       nano \
       wget \
-      python=2.7.9-1 \
     && rm -fr /var/lib/apt/lists/*
 # update variables
 ENV \ 

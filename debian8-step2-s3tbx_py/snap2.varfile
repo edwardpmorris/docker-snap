@@ -1,15 +1,15 @@
 # install4j response file for ESA SNAP 2.0.2
-# headless S2TBX with Python API
+# headless S3TBX with Python API
 deleteAllSnapEngineDir$Boolean=false
 deleteOnlySnapDesktopDir$Boolean=false
-executeLauncherWithPythonAction$Boolean=false
-forcePython$Boolean=false
+executeLauncherWithPythonAction$Boolean=true
+forcePython$Boolean=true
 pythonExecutable=/usr/bin/python
 sys.adminRights$Boolean=true
 sys.component.RSTB$Boolean=false
 sys.component.S1TBX$Boolean=false
-sys.component.S2TBX$Boolean=true
-sys.component.S3TBX$Boolean=false
+sys.component.S2TBX$Boolean=false
+sys.component.S3TBX$Boolean=true
 sys.component.SNAP$Boolean=false
 sys.installationDir=/home/worker/snap
 sys.languageId=en

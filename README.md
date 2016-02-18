@@ -2,7 +2,7 @@
 
 Docker containers including ESA-STEP Sentinel Application Platform ([SNAP]( http://step.esa.int/main/toolboxes/snap/)) and Sentinel toolboxes jointly developed by Brockmann Consult, Array Systems Computing and C-S.
 
-Some useful utlities containers for Sentinel data are also included.
+Some useful utlities containers are also included.
 
 ## Status
 + pre alpha, in development and may change at anytime without notice
@@ -13,15 +13,16 @@ Some useful utlities containers for Sentinel data are also included.
 
 ### Headless SNAP with toolboxes, `gpt` command line API
 + [debian8-snap2:base]() - Base container used to build SNAP and toolboxes (~550 Mb).
++ [debian8-snap2:on_build]() - Build instuctions ().
 + [debian8-snap2:s1tbx]()  - Base container with SNAP + S1TBX (~ 1Gb).
 + [debian8-snap2:s2tbx]()  - Base container with SNAP + S2TBX (~ 1Gb).
 + [debian8-snap2:s3tbx]()  - Base container with SNAP + S3TBX (~ 1Gb).
 
-### Headless SNAP with toolboxes, `snappy` Python API enabled
-RETHINK: Why not just make Python available by default in all? Python is already weel integrated into debian so no real overhead?
-
-+ [debian8-snap2:base]() - Base container with Python used to build snap and toolboxes ( Mb) [TODO]
-
+### Headless SNAP with toolboxes, `gpt` command line API and `snappy` Python API enabled
++ [debian8-snap2:on_build_py]() - Build instuctions ().
++ [debian8-snap2:s1tbx_py]()  - Base container with SNAP + S1TBX (~ 1Gb).
++ [debian8-snap2:s2tbx_py]()  - Base container with SNAP + S2TBX (~ 1Gb).
++ [debian8-snap2:s3tbx_py]()  - Base container with SNAP + S3TBX (~ 1Gb).
 
 ### Utilities
 + alpine3-pythonX-sentinelsat Python container with sentinelsat 0.6.4 a utility to search and download Sentinel-1 Imagery [TODO]
@@ -37,9 +38,11 @@ RETHINK: Why not just make Python available by default in all? Python is already
 ## Details
 The SNAP installer, created with [install4j](http://www.ej-technologies.com/products/install4j/overview.html) from [ej-technologies](http://www.ej-technologies.com/index.html), supports graphical, console and unattended installation (see [Install SNAP on the command line](https://senbox.atlassian.net/wiki/display/SNAP/Install+SNAP+on+the+command+line). 
 
-The base container downloads the SNAP Unix installer and prepares the container ready for installation using the Dockerfile `ONBUILD` instruction. Upon initiating a build, the `snap2.varfile` which contains the specific build options is copied to the container and the unattended installation of SNAP within containers is done by passing the option `-q` and the 'instalation file' to the installer via the `-varfile` option (all these commands are found in the `:base` Dockerfile).
+The base container downloads the SNAP Unix installer and prepares the container ready for installation using [Dockerfile `ONBUILD` instructions](https://docs.docker.com/engine/reference/builder/#onbuild). For improved maintenance ONBUILD instructions are stored in a seperate Dockerfile; meaning less builds of the base image. Upon initiating a specific build, the `snap2.varfile` which contains the build options is copied to the container and the unattended installation of SNAP within the container is done by passing the option `-q` and the 'instalation file' to the installer via the `-varfile` option (all these commands are found in the `:on_build` Dockerfile, whereas the instalations instructions are in `snap2.varfile`). The Dockerfiles in each build directory mainly add metadata (labels, ect.).
 
-This keeps maintenance minimal (i.e., changes to the base container propagate), means the Dockerfiles for each build are more for adding metadata (labels, ect.) and builds can be easily adjusted.
+SNAP has 2 headless APIs, `gpt` a mature command line interface and `snappy` a Python API. To facilitate the communication with SNAP via `snappy` a set of containers that include Python 2.7 (from the Debian package distribution system) are also available, note the Python instalation is intentially minimal and 'frozen' to a debian package release. 
+
+Note: An initial (quick) test with [1science/docker-alpine:3.3](https://github.com/1science/docker-alpine) suggested The SNAP installer does not work with the minimilist Docker image from Alpine Linux; Error unpacking jar files. The architecture or bitness (32/64) of the bundled JVM might not match your machine. However, on the Alpine Linux distribution site 64bit version are available. More research to be done! 
 
 ## Installation
 
@@ -65,7 +68,6 @@ docker run --rm epmorris/debian8-snap2:s1tbx gpt -h
 ```
 docker run -it -v /home/edward/snap/bin/gpt.vmoptions:/usr/local/snap/bin/gpt.vmoptions epmorris/debian8-esa-step-snap2:s1tbx
 ```
-+ check why PATH assignment is not permenant in container
 
 ## Acknowledgements
 Thanks to ESA-STEP Sentinel Application Platform and Sentinel toolboxes development teams for making SNAP freely available.

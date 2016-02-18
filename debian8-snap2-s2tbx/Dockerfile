@@ -9,5 +9,5 @@ MAINTAINER epmorris "edward.morris@uca.es"
 LABEL snap_version='2.0.2' \
   toolboxes='S2TBX' \
   toolbox_version='' \
-  python_API_enabled='True' \
+  python_API_enabled='False' \
   GUI_enabled='False'

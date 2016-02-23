@@ -8,6 +8,6 @@ MAINTAINER epmorris "edward.morris@uca.es"
 # update labels
 LABEL snap_version='2.0.2' \
   toolboxes='S3TBX' \
-  toolbox_version='' \
+  toolbox_version='2.0.1' \
   python_API_enabled='True' \
   GUI_enabled='False'

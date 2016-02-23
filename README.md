@@ -5,28 +5,28 @@ Docker containers including ESA-STEP Sentinel Application Platform ([SNAP]( http
 Some useful utlities containers are also included.
 
 ## Status
-+ pre alpha, in development and may change at anytime without notice
++ in early development and may change at anytime without notice
 + headless debian containers available 
 + images not yet on Dockerhub.
 
 ## Versions
 
-### Headless SNAP with toolboxes, `gpt` command line API
+### Headless SNAP with toolboxes, `gpt` command line API enabled
 + [debian8-snap2:base]() - Base container used to build SNAP and toolboxes (~550 Mb).
-+ [debian8-snap2:on_build]() - Build instuctions ().
-+ [debian8-snap2:s1tbx]()  - Base container with SNAP + S1TBX (~ 1Gb).
-+ [debian8-snap2:s2tbx]()  - Base container with SNAP + S2TBX (~ 1Gb).
-+ [debian8-snap2:s3tbx]()  - Base container with SNAP + S3TBX (~ 1Gb).
++ [debian8-snap2:on_build]() - Build instuctions (~550 Mb).
++ [debian8-snap2:s1tbx]()  - Base container with SNAP + S1TBX (~ 1 Gb).
++ [debian8-snap2:s2tbx]()  - Base container with SNAP + S2TBX (~ 1 Gb).
++ [debian8-snap2:s3tbx]()  - Base container with SNAP + S3TBX (~ 1 Gb).
 
 ### Headless SNAP with toolboxes, `gpt` command line API and `snappy` Python API enabled
-+ [debian8-snap2:on_build_py]() - Build instuctions ().
-+ [debian8-snap2:s1tbx_py]()  - Base container with SNAP + S1TBX (~ 1Gb).
-+ [debian8-snap2:s2tbx_py]()  - Base container with SNAP + S2TBX (~ 1Gb).
-+ [debian8-snap2:s3tbx_py]()  - Base container with SNAP + S3TBX (~ 1Gb).
++ [debian8-snap2:on_build_py]() - Build instuctions (~ 570 Mb).
++ [debian8-snap2:s1tbx_py]()  - Base container with SNAP + S1TBX (~ 1.1 Gb).
++ [debian8-snap2:s2tbx_py]()  - Base container with SNAP + S2TBX (~ 1.1 Gb).
++ [debian8-snap2:s3tbx_py]()  - Base container with SNAP + S3TBX (~ 1.1 Gb).
 
 ### Utilities
 + alpine3-pythonX-sentinelsat Python container with sentinelsat 0.6.4 a utility to search and download Sentinel-1 Imagery [TODO]
-+ java8-maven-git-snapdev (https://hub.docker.com/r/jamesdbloom/docker-java8-maven/) For compiling developer versions of snap using netbeans.[TODO]
++ java8-maven-git-snap_dev - For compiling developer versions of snap using netbeans.[TODO]
 
 ## Dependencies
 

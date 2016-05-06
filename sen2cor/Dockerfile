@@ -35,14 +35,13 @@ RUN apt-get update -y && apt-get install -y \
       libopenjp2-7 \
     && rm -fr /var/lib/apt/lists/*
 
-# install sen2cor and downgrade gdal    
-RUN conda update --yes conda \
-    && conda install -c terradue sen2cor=2.0.6 \
-    && conda install -c gdal gdal=1.10.1
+# install sen2cor and downgrade gdal to 1.10.1 (Bug: libgdal.so.20 not found)
+RUN conda install -c terradue sen2cor=2.0.6  \
+    && conda clean -t
+RUN conda install -c osgeo gdal=1.10.1 \
     && conda clean -t
 
 # update variables
-ENV GDAL_DRIVER_PATH /opt/conda/gdalplugins:$GDAL_DRIVER_PATH
 ENV  GDAL_DATA /opt/conda/share/gdal
 ENV  SEN2COR_BIN /opt/conda/lib/python2.7/site-packages/sen2cor
 ENV  HOME /home/worker
@@ -53,8 +52,7 @@ RUN cp ${SEN2COR_BIN}/cfg/L2A_GIPP.xml ${SEN2COR_HOME}/cfg/
 
 # create user group
 RUN groupadd -r worker \
-    && useradd -r -g worker worker #\
-#    && mkdir /home/worker
+    && useradd -r -g worker worker
 
 # set work directory to home
 WORKDIR /home/worker

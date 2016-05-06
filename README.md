@@ -32,6 +32,7 @@ Links to other useful projects
 + [debian8-snap2:s3tbx_py]()  - Base container with SNAP + S3TBX (~ 1.1 Gb).
 
 ### Utilities
++ sen2cor:2.0.6 Python miniconda container with sen2cor 2.0.6 a utility for the atmospheric correction of L1C Sentinel 2 products.
 + alpine3-pythonX-sentinelsat Python container with sentinelsat 0.6.4 a utility to search and download Sentinel-1 Imagery [TODO]
 + java8-maven-git-snap_dev - For compiling developer versions of snap using netbeans.[TODO]
 
@@ -65,6 +66,7 @@ Note: An initial (quick) test with [1science/docker-alpine:3.3](https://github.c
 
 ## Usage
 
+### SNAP containers
 To run a container (choose the container flavour using the `:tag` option) and view the help for the SNAP command line API, `gpt`, open a terminal and type:
 
 ```
@@ -75,6 +77,19 @@ docker run --rm epmorris/debian8-snap2:s1tbx gpt -h
 ```
 docker run -it -v /home/edward/snap/bin/gpt.vmoptions:/usr/local/snap/bin/gpt.vmoptions epmorris/debian8-esa-step-snap2:s1tbx
 ```
+
+### Sen2Cor
+
+To get help for the Sen2Cor command line interface:
+```
+docker run --rm epmorris/sen2cor:2.0.6 L2A_Process -h
+```
+Run atmospheric correction on a image
+
+```
+docker run -it -v /home/edward/Desktop/S2:/home/worker/S2 epmorris/sen2cor:2.0.6
+```
+
 
 ## Acknowledgements
 Thanks to ESA-STEP Sentinel Application Platform and Sentinel toolboxes development teams for making SNAP freely available.

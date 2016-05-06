@@ -4,6 +4,13 @@ Docker containers including ESA-STEP Sentinel Application Platform ([SNAP]( http
 
 Some useful utlities containers are also included.
 
+## Resources
+Links to other useful projects
+
+**SEN2COR**
++ https://github.com/lvhengani/sen2cor_docker
++ https://github.com/ec-ecopotential/dcs-sen2cor
+
 ## Status
 + in early development and may change at anytime without notice
 + headless debian containers available 

@@ -17,4 +17,7 @@
 
 #docker build --tag="epmorris/debian8-snap2:s3tbx" debian8-step2-s3tbx
 
-docker build --tag="epmorris/sen2cor:2.0.6" sen2cor/
+#docker build --tag="epmorris/sen2cor:2.0.6-tdpatch" sen2cor/2.0.6-tdpatch
+docker build --tag="epmorris/sen2cor:2.2.1" sen2cor/2.2.1
+
+

@@ -87,7 +87,12 @@ docker run --rm epmorris/sen2cor:2.0.6 L2A_Process -h
 Run atmospheric correction on a image
 
 ```
-docker run -it -v /home/edward/Desktop/S2:/home/worker/S2 epmorris/sen2cor:2.0.6
+docker run -it -v /home/edward/Desktop/S2:/home/worker/S2 epmorris/sen2cor:2.2.1 \
+L2A_Process \
+--resolution 10 \
+--GIP_L2A $SEN2COR_HOME/cfg/L2A_GIPP.xml \
+S2/S2A_OPER_PRD_MSIL1C_PDMC_20160309T104243_R137_V20160308T112023_20160308T112023.SAFE/GRANULE/S2A_OPER_MSI_L1C_TL_MTI__20160308T193334_A003709_T29SQA_N02.01
+
 ```
 
 
